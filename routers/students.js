@@ -8,9 +8,9 @@ const router = express.Router();
 router.post("/", async (req, res) => {
     const {name, phone, age, email} = req.body
 
-    let student = await Students.find({ email })
+    let student = await Students.findOne({ email })
     
-    if (student) return res.send('You are already registered!')
+    if (student) return res.send('Student are already registered!')
     
     student = new Students({
         name,
